@@ -1,0 +1,187 @@
+.container {
+    display: flex;
+    padding-inline: 2.5rem;
+    padding-block: 2.5rem;
+    border: 1px solid rgb(var(--white), 0.1);
+    border-radius: 1.5rem;
+    align-items: center;
+    background-image: linear-gradient(to bottom, transparent, rgb(var(--blue-accent), 0.3));
+
+    .error {
+        color: rgb(var(--red-accent));
+        font-size: 0.9rem;
+        text-align: right
+    }
+}
+
+.details {
+    margin-left: 1rem;
+    margin-right: 5rem;
+    flex: 1;
+
+    >p {
+        opacity: 0.4;
+    }
+
+    h1 {
+        cursor: pointer;
+
+        p {
+            font-size: 2.25rem;
+            line-height: 0.9;
+            position: relative;
+            width: fit-content;
+
+            span {
+                position: relative;
+                color: rgb(var(--accent));
+                transform: rotate(-45deg);
+                transform-origin: left;
+            }
+        }
+
+        &:hover {
+            color: rgb(var(--accent));
+
+            span {
+                color: rgb(var(--white));
+            }
+        }
+
+        &:active {
+            span {
+                transform: rotate(45deg) scale(0.9);
+            }
+        }
+    }
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    justify-content: end;
+}
+
+.loading-stat-card {
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(var(--white), 0.2);
+    border-radius: 1.25rem;
+    height: 7rem;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background-color: rgb(var(--white), 0.05);
+    animation: loading 1s infinite alternate;
+}
+
+@keyframes loading {
+    0% {
+        background-color: rgb(var(--white), 0.1);
+        border: 1px solid rgb(var(--white), 0.3);
+        transform: scale(1);
+    }
+
+    50% {
+        background-color: rgb(var(--white), 0.2);
+        border: 1px solid rgb(var(--white), 0.4);
+        transform: scale(1.025);
+    }
+
+    100% {
+        background-color: rgb(var(--white), 0.1);
+        border: 1px solid rgb(var(--white), 0.3);
+        transform: scale(1);
+    }
+}
+
+.stat-card {
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(var(--white), 0.2);
+    border-radius: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background-color: rgb(var(--white), 0.05);
+
+    &:hover {
+        background-color: rgb(var(--white), 0.1);
+        border: 1px solid rgb(var(--white), 0.3);
+        box-shadow: 0 0px 10px rgb(var(--white), 0.1), inset 0 0px 5px rgb(var(--white), 0.1), 0 0px 25px rgb(var(--white), 0.05);
+    }
+
+    .title {
+        color: rgb(var(--accent));
+
+        sup {
+            font-size: 0.8rem;
+            margin-left: 0.15rem;
+        }
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .info {
+        display: flex;
+        align-items: start;
+        gap: 0.5rem;
+
+        .icon {
+            height: 2.5rem;
+            width: 2.5rem;
+            border-radius: 50%;
+            background-color: rgb(var(--white), 0.1);
+            border: 1px solid rgb(var(--white), 0.2);
+            display: grid;
+            place-items: center;
+
+            &.bad {
+                color: rgb(var(--red-accent));
+            }
+
+            &.good {
+                color: rgb(var(--green-accent));
+            }
+        }
+
+        .stat {
+            display: flex;
+            margin-right: 5px;
+
+            span {
+                line-height: 0.625;
+
+                &.label {
+                    opacity: 0.4;
+                }
+
+                &.value {
+                    letter-spacing: -2px;
+                    font-size: 2.5rem;
+                    margin-top: 5px;
+
+                    span {
+                        font-size: 1rem;
+                        opacity: 0.4;
+                        margin-left: 5px;
+                    }
+                }
+
+                sup {
+                    position: absolute;
+                }
+
+            }
+
+            flex-direction: column;
+        }
+    }
+}

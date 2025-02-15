@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.15s ease-in-out;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-optical-sizing: auto;
+  color-scheme: light dark;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+
+  :root {
+    --accent: 185, 98, 12;
+    --white: 24, 31, 31;
+    --black: 226, 218, 208;
+    --blue-accent: 9, 88, 177;
+    --red-accent: 202, 24, 68;
+    --green-accent: 29, 135, 97;
+  }
+
+  :root {
+    color: rgb(var(--white));
+    background-color: rgb(var(--black));
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: 185, 98, 12;
+    --black: 24, 31, 31;
+    --white: 202, 194, 185;
+    --blue-accent: 9, 88, 177;
+    --red-accent: 202, 24, 68;
+    --green-accent: 29, 135, 97;
+  }
+
+  :root {
+    color: rgb(var(--white));
+    background-color: rgb(var(--black));
+  }
+}

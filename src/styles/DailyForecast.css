@@ -1,0 +1,69 @@
+.forecast-container {
+    padding-inline: 2rem;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+
+    .title {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .forecasts {
+        margin-top: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        gap: 0.25rem;
+
+        .card {
+            padding-inline: 1rem;
+            padding-block: 1rem;
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgb(var(--white), 0.2);
+            background-color: rgb(var(--white), 0.05);
+
+            &:hover {
+                background-color: rgb(var(--white), 0.1);
+                border: 1px solid rgb(var(--white), 0.3);
+                box-shadow: 0 0px 10px rgb(var(--white), 0.1), inset 0 0px 5px rgb(var(--white), 0.1), 0 0px 25px rgb(var(--white), 0.05);
+            }
+
+            img {
+                height: 5rem;
+            }
+
+            .label {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                span {
+                    line-height: 1;
+                    font-size: 1.25rem;
+                    color: rgb(var(--accent));
+                }
+
+                .lite {
+                    opacity: 0.6;
+                    color: rgb(var(--white));
+                    font-size: 0.8rem;
+                    position: relative;
+                    top: -0.25rem;
+                }
+            }
+
+            .feelslike {
+                font-size: 1.25rem;
+
+                sup {
+                    font-size: 0.8rem;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}

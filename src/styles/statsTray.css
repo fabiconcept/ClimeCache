@@ -1,0 +1,19 @@
+.stats-tray {
+    padding-inline: 2rem;
+    padding-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0.25rem;
+
+    .loading-stat-card {
+        flex: 1;
+    }
+
+    .failed {
+        color: rgb(var(--red-accent));
+        text-align: center;
+        max-width: 70%;
+        margin-inline: auto;
+        margin-top: 1rem;
+    }
+}

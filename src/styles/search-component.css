@@ -1,0 +1,122 @@
+.search-wrapper {
+    position: relative;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    flex: 1;
+}
+
+.search-component {
+    background: rgb(var(--white), 0.1);
+    padding-inline: 2rem;
+    padding-block: 0.6rem;
+    position: relative;
+    border: 1px solid rgb(var(--white), 0.2);
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .shortcut-tip {
+        position: absolute;
+        right: 6px;
+        opacity: 0.8;
+        padding-inline: 1rem;
+        height: 80%;
+        background-color: rgb(var(--white), 0.1);
+        border: 1px solid rgb(var(--white), 0.2);
+        pointer-events: none;
+        border-radius: 5rem;
+        display: grid;
+        place-items: center;
+        backdrop-filter: blur(5px);
+        cursor: pointer;
+
+        span {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+    }
+
+    &:has(input:focus) .shortcut-tip,
+    &:has(input:not(:placeholder-shown)) .shortcut-tip {
+        opacity: 0;
+    }
+
+    input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        font-weight: 600;
+        color: rgb(var(--white));
+        outline: none;
+    }
+
+    .loader {
+        width: 2.5rem;
+        position: absolute;
+        right: 5px;
+    }
+
+    .icon {
+        opacity: 0.4;
+    }
+}
+
+.search-component:has(input:focus) {
+    border: 1px solid rgb(var(--white), 0.4);
+
+    .icon {
+        opacity: 1;
+    }
+}
+
+.search-suggestions {
+    position: absolute;
+    z-index: 1000;
+    top: calc(100% + 5px);
+    backdrop-filter: blur(5px);
+    left: 0;
+    right: 0;
+    background: rgb(var(--black), 0.9);
+    border: 1px solid rgb(var(--white), 0.2);
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+    overflow-y: auto;
+
+    .suggestion {
+        padding-block: 0.6rem;
+        padding-inline: 2rem;
+        cursor: pointer;
+        border-bottom: 1px solid rgb(var(--white), 0.2);
+        display: flex;
+        background: rgb(var(--white), 0.1);
+        align-items: center;
+        gap: 10px;
+        user-select: none;
+
+        img {
+            height: 20px;
+            object-fit: contain;
+            margin-bottom: -2px;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &:active {
+            opacity: 0.6;
+
+            span,
+            img {
+                transform: scale(0.95);
+            }
+        }
+
+        &:hover {
+            background-color: rgb(var(--white), 0.2);
+        }
+    }
+}

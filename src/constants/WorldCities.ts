@@ -1,0 +1,17 @@
+export const WORLD_CITIES: { city: string; country: string }[] = [
+    { city: "Tokyo", country: "Japan" },
+    { city: "Delhi", country: "India" },
+    { city: "Shanghai", country: "China" },
+    { city: "Dhaka", country: "Bangladesh" },
+    { city: "São Paulo", country: "Brazil" },
+    { city: "Cairo", country: "Egypt" },
+    { city: "Mexico City", country: "Mexico" },
+    { city: "Beijing", country: "China" },
+    { city: "Mumbai", country: "India" },
+    { city: "Higashi-Osaka", country: "Japan" },
+    { city: "Chongqing", country: "China" },
+    { city: "Karachi", country: "Pakistan" },
+    { city: "Kinshasa", country: "Democratic Republic of Congo" },
+    { city: "Lagos", country: "Nigeria" },
+    { city: "Istanbul", country: "Turkey" },
+];

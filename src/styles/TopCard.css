@@ -1,0 +1,72 @@
+.top-card {
+    margin-top: -20px;
+    padding-inline: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-block: 1rem;
+
+    .top-card-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        h1 {
+            font-size: 2rem;
+            line-height: 1;
+            margin-bottom: 10px;
+            max-width: 50%;
+        }
+
+        .label {
+            opacity: 0.4;
+        }
+
+        h3 {
+            opacity: 0.8;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+
+            img {
+                height: 1rem;
+                margin-bottom: -2px;
+            }
+
+            gap: 0.5rem;
+
+            .btns {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+            }
+
+            &:has(.btns) {
+                gap: 1rem;
+            }
+        }
+
+        .weather-icon {
+            height: 10rem;
+        }
+
+        &.right {
+            flex-direction: row;
+            align-items: center;
+            flex: 0;
+        }
+
+        .data {
+            flex: 1;
+            margin-top: -25px;
+
+            h2 {
+                font-size: 6rem;
+                line-height: 1;
+            }
+        }
+    }
+}
