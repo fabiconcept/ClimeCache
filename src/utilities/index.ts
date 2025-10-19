@@ -2,6 +2,7 @@ import { ForecastDay } from "../types/currentWeather";
 import { Country } from "../types";
 import { WeatherApi } from "./WeatherApi";
 import countriesData from "./country.json";
+import os from "os";
 
 type LocationData = {
     city?: string;
@@ -96,7 +97,6 @@ export function detectOS(): ("windows" | "macos" | "linux" | "unknown" | "ios" |
 
     // Otherwise we're in a Node.js (server) environment
     try {
-        const os = require("os");
         const platform = os.platform();
 
         if (platform === "win32") return "windows";

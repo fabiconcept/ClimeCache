@@ -68,7 +68,7 @@ export default function App() {
         if (myNotes) {
             populateNotes(myNotes);
         }
-    }, []);
+    }, [populateNotes, setHasError, setHasPermissionLocation, setLocation, setMyFavoriteCities, setMyWorldCities, setSelectedCity]);
 
     return (
         <div className="app" data-testid="app">

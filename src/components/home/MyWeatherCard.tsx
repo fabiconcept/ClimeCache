@@ -20,8 +20,7 @@ export default function MyWeatherCard() {
         if (memoisedLocation?.formatted) {
             loadMyWeatherData(memoisedLocation.formatted);
         }
-        console.log("Location changed: ", memoisedLocation);
-    }, [memoisedLocation]);
+    }, [memoisedLocation, loadMyWeatherData]);
 
     return (
         <div className="container">

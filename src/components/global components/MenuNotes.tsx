@@ -7,10 +7,10 @@ import { motion } from "framer-motion";
 
 export default function MenuNotes({ closeMenu }: { closeMenu: () => void }) {
     const { myNotes } = useMyNotes();
-    if (!myNotes) return null;
     const containerRef = useRef<HTMLDivElement>(null);
 
     useClickAway(containerRef, () => closeMenu());
+    if (!myNotes) return null;
 
     return (
         <motion.div

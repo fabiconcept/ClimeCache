@@ -16,7 +16,7 @@ export default function FeelsLike() {
                         <div className="info">
                             <div className="icon"><FaTemperatureHigh /></div>
                             <div className="stat">
-                                <span className="value">{weatherData.current.feelslike}<sup>o</sup></span>
+                                <span className="value">{weatherData.current.feelslike_c}<sup>o</sup></span>
                             </div>
                         </div>
                     </div>

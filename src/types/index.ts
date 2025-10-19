@@ -12,22 +12,22 @@ export interface HeaderButtonProps {
     }
 }
 
-interface RequestParamsWIthDefaultUrl {
+interface RequestParamsWIthDefaultUrl<T> {
     defaultUrl: string;
     method?: "GET" | "POST" | "PUT" | "DELETE";
-    body?: Record<string, any>;
+    body?: Record<string, T>;
     headers?: HeadersInit;
 }
 
-interface RequestPropsWIthEndpoint {
+interface RequestPropsWIthEndpoint<T> {
     defaultUrl?: undefined;
     endpoint: string;
     method?: "GET" | "POST" | "PUT" | "DELETE";
-    body?: Record<string, any>;
+    body?: Record<string, T>;
     headers?: HeadersInit;
 }
 
-export type RequestParams = RequestParamsWIthDefaultUrl | RequestPropsWIthEndpoint
+export type RequestParams <T> = RequestParamsWIthDefaultUrl<T> | RequestPropsWIthEndpoint<T>
 
 export interface Country {
     capital: string;

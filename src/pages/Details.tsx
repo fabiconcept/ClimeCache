@@ -37,7 +37,7 @@ export default function Details() {
                 myLocation: type === "my-location"
             }
         }
-    }, [query, type]);
+    }, [query, type, setNoteModalOpen]);
 
     useEffect(() => {
         if (!note) return;

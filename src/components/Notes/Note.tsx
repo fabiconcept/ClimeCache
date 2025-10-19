@@ -18,7 +18,7 @@ export default function Note() {
     const previousNoteData = useMemo(() => {
         if (!activeNoteId) return null;
         return retrieveExistingNote(activeNoteId);
-    }, [activeNoteId]);
+    }, [activeNoteId, retrieveExistingNote]);
 
     const [noteContent, setNoteContent] = useState(previousNoteData ? previousNoteData.text : "");
     const [noteTitle, setNoteTitle] = useState(previousNoteData ? previousNoteData.title : "");

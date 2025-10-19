@@ -38,7 +38,7 @@ export class WeatherApi {
         body,
         headers = {},
         ...props
-    }: RequestParams): Promise<T> {
+    }: RequestParams<unknown>): Promise<T> {
         const url = props.defaultUrl ?? `${this.BASE_URL}${props.endpoint}&key=${this.API_KEY}`;
 
         console.log({
