@@ -5,7 +5,7 @@ import "../../styles/search-component.css";
 import { useAutocompleteHook } from "../../utilities/Hooks/useAutoComplete";
 import { useDebounce } from "../../utilities/Hooks/useDebounce";
 import { useRef } from "react";
-import { getCountrySvg } from "../../utilities";
+import { detectOS, getCountrySvg } from "../../utilities";
 import { useNavigate } from "react-router-dom";
 import { LocalStorageToolkit } from "../../utilities/localStorage";
 import { useKeyboardShortcut } from "../../utilities/Hooks/useControlPress";
@@ -20,11 +20,20 @@ export default function SearchComponent() {
     const [isLoading] = useAutocompleteHook({ searchTerm: debounceSearchTerm });
     const { autocomplete, clear } = useAutocomplete();
 
+    const getCurrentOS = detectOS()
+
     useClickAway(containerRef, () => clear());
 
     useKeyboardShortcut({
         onTrigger: () => inputRef.current?.focus(),
-        shortcuts: [
+        shortcuts: getCurrentOS === "macos" ? 
+        [
+            { key: 'k', metaKey: true },
+            { key: 'l', metaKey: true },
+            { key: 'f', metaKey: true },
+        ] 
+        :
+        [
             { key: 'k', ctrlKey: true },
             { key: 'l', ctrlKey: true },
             { key: 'f', ctrlKey: true },
@@ -44,7 +53,7 @@ export default function SearchComponent() {
                 {/* Search Bar */}
                 <input
                     type="text"
-                    placeholder="Look up a city..."
+                    placeholder={`Look up a city...`}
                     value={searchTerm}
                     ref={inputRef}
                     onChange={(e) => setSearchTerm(e.target.value)}
@@ -57,9 +66,9 @@ export default function SearchComponent() {
                 />}
 
                 {/* Shortcut tip */}
-                {!isLoading && <div className="shortcut-tip">
-                    <span>CTRL + K</span>
-                </div>}
+                {!isLoading && <kbd className="shortcut-tip flex items-center">
+                    {getCurrentOS === "macos" ? <span><span className="cmd">⌘</span> + K</span> : <span>CTRL + K</span>}
+                </kbd>}
 
                 {/* Search Suggestions */}
                 {autocomplete?.length > 0 && <SearchSuggestions autocomplete={autocomplete} clear={clear} />}

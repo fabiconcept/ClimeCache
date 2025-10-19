@@ -42,7 +42,7 @@ const defaultLocation: Location = {
     city: '',
     country: '',
     state: '',
-    formatted: '',
+    formatted: ''
 };
 
 // Store creation

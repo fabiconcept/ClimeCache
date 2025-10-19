@@ -39,7 +39,7 @@ export default function App() {
                     formatted: location?.formatted ?? ""
                 });
 
-                setSelectedCity(location?.formatted ?? `${location?.city}, ${location?.state}` ?? "");
+                setSelectedCity(location?.formatted ? `${location?.city || ""}, ${location?.state || ""}` : "");
                 LocalStorageToolkit.setItem("user-location", {
                     city: location?.city ?? "",
                     country: location?.country ?? "",

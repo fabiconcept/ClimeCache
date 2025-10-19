@@ -30,7 +30,7 @@ export const getLocation = async (): Promise<[LocationData, LocationError]> => {
                             city: results[0].state,
                             country: results[0].country,
                             state: results[0].county,
-                            formatted: results[0].formatted,
+                            formatted: results[0].formatted
                         },
                         null,
                     ]);
@@ -75,4 +75,35 @@ export const getSuffix = (day: ForecastDay) => {
 export const getDayOfWeek = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { weekday: 'long' });
+}
+
+export function detectOS(): ("windows" | "macos" | "linux" | "unknown" | "ios" | "android") {
+    // Check if we're in a browser environment
+    if (typeof window !== "undefined" && typeof navigator !== "undefined") {
+        const ua = navigator.userAgent.toLowerCase();
+
+        if (ua.includes("windows")) return "windows";
+        if (ua.includes("mac")) {
+            // Distinguish between iOS and macOS
+            if (ua.includes("iphone") || ua.includes("ipad") || ua.includes("ipod")) return "ios";
+            return "macos";
+        }
+        if (ua.includes("android")) return "android";
+        if (ua.includes("linux")) return "linux";
+
+        return "unknown";
+    }
+
+    // Otherwise we're in a Node.js (server) environment
+    try {
+        const os = require("os");
+        const platform = os.platform();
+
+        if (platform === "win32") return "windows";
+        if (platform === "darwin") return "macos";
+        if (platform === "linux") return "linux";
+        return "unknown";
+    } catch {
+        return "unknown";
+    }
 }
