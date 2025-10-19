@@ -11,14 +11,15 @@ export default function HeaderComponent() {
     const { myNotes } = useMyNotes();
     const { isNotesMenuOpen, isSettingsMenuOpen, toggleNotesMenu, toggleSettingsMenu } = useHeaderMenu();
     return (
-        <div className="header-component">
+        <div className="header-component not-relative">
+            <div className="filter"></div>
             <SearchComponent />
             <div className="btns">
                 <HeaderButton
                     active={myNotes?.length > 0}
                     isSelected={isNotesMenuOpen}
                     iconSource="/assets/images/notes.png"
-                    onClick={toggleNotesMenu}
+                    onClick={isNotesMenuOpen ? ()=>{} : toggleNotesMenu}
                     counter={myNotes?.length}
                     tooltip="My Notes"
                 />

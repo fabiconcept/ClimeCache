@@ -4,7 +4,6 @@
     position: sticky;
     top: 0;
     padding: 30px;
-    backdrop-filter: blur(10px);
     z-index: 100000000;
     align-items: center;
 
@@ -30,6 +29,8 @@
 }
 
 .header-button {
+    position: relative;
+    z-index: 10;
     display: grid;
     place-items: center;
     padding: 10px;

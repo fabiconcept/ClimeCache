@@ -16,7 +16,8 @@ export default function HeaderComponent() {
     const navigate = useNavigate();
 
     return (
-        <div className="header-component">
+        <div className="header-component not-relative">
+            <div className="filter"></div>
             <HeaderButton active={true} iconSource="/assets/images/arrow-back.png" onClick={() => navigate(-1)} tooltip="Back" />
             <SearchComponent />
             <div className="btns">

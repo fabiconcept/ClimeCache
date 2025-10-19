@@ -47,3 +47,26 @@
     background-color: rgb(var(--black));
   }
 }
+
+.filter {
+  backdrop-filter: blur(4px);
+  filter: url(#lensFilter) saturate(120%) brightness(1.15);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+div:has(>.filter):not(.not-relative) {
+  position: relative;
+}
+
+.no-blur .filter {
+  backdrop-filter: blur(0px);
+}
+
+.rounded .filter {
+  border-radius: 50%;
+  overflow: hidden;
+}

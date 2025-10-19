@@ -81,6 +81,43 @@ export default function App() {
                     <Route path="/details" element={<Details />} />
                 </Routes>
             </BrowserRouter>
+
+            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
+                <filter id="lensFilter" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox">
+                    {/* Create alpha channel for displacement */}
+                    <feComponentTransfer in="SourceAlpha" result="alpha">
+                        <feFuncA type="identity" />
+                    </feComponentTransfer>
+
+                    {/* Blur for smooth displacement */}
+                    <feGaussianBlur in="alpha" stdDeviation="40" result="blur" />
+
+                    {/* Top displacement - push content down */}
+                    <feOffset in="blur" dx="0" dy="-30" result="topBlur" />
+                    <feDisplacementMap
+                        in="SourceGraphic"
+                        in2="topBlur"
+                        scale="60"
+                        xChannelSelector="A"
+                        yChannelSelector="A"
+                        result="topDisplace"
+                    />
+
+                    {/* Bottom displacement - push content up */}
+                    <feOffset in="blur" dx="0" dy="30" result="bottomBlur" />
+                    <feDisplacementMap
+                        in="SourceGraphic"
+                        in2="bottomBlur"
+                        scale="60"
+                        xChannelSelector="A"
+                        yChannelSelector="A"
+                        result="bottomDisplace"
+                    />
+
+                    {/* Blend both displacements */}
+                    <feBlend mode="normal" in="topDisplace" in2="bottomDisplace" />
+                </filter>
+            </svg>
         </div >
     )
 }
