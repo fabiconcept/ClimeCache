@@ -43,7 +43,7 @@ export default function SearchComponent() {
 
     return (
         <div ref={containerRef} className="search-wrapper no-blur">
-            <div className="filter"></div>
+            <div className="filter flip-y"></div>
             <div className="search-component">
                 {/* Search Icon */}
                 <img

@@ -70,3 +70,11 @@ div:has(>.filter):not(.not-relative) {
   border-radius: 50%;
   overflow: hidden;
 }
+
+.flip-y {
+  transform: scaleY(-1);
+}
+
+.flip-x {
+  transform: scaleX(-1);
+}
