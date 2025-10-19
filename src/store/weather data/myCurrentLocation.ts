@@ -36,7 +36,7 @@ export const useMyCurrentLocation = create<WeatherState>((set) => {
             const response = await weatherAPI.getCurrentWeather(location);
 
             if ('success' in response) {
-                throw new Error(response.error.info ?? 'Failed to fetch weather data.');
+                throw new Error((response as unknown as {error: {info: string}}).error.info ?? 'Failed to fetch weather data.');
             }
 
             const weatherData = response as CurrentWeatherApiResponse;
