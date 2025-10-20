@@ -4,7 +4,7 @@ import { useSearch } from "../../store/Search";
 import "../../styles/search-component.css";
 import { useAutocompleteHook } from "../../utilities/Hooks/useAutoComplete";
 import { useDebounce } from "../../utilities/Hooks/useDebounce";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { detectOS, getCountrySvg } from "../../utilities";
 import { useNavigate } from "react-router-dom";
 import { LocalStorageToolkit } from "../../utilities/localStorage";
