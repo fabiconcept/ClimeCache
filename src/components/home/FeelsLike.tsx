@@ -10,13 +10,13 @@ export default function FeelsLike() {
     return (
         status === "success" ?
             !weatherData || !weatherData.current ? <>{null}</> :
-                <StatCard>
+                <StatCard title={`It currently Feels Like ${weatherData.current.feelslike_c}°`}>
                     <p className="title">Feels like</p>
                     <div className="row">
                         <div className="info">
-                            <div className="icon"><FaTemperatureHigh /></div>
+                            <div className="icon"><FaTemperatureHigh className="heartbeat" /></div>
                             <div className="stat">
-                                <span className="value">{weatherData.current.feelslike_c}<sup>o</sup></span>
+                                <span className="value">{weatherData.current.feelslike_c}°</span>
                             </div>
                         </div>
                     </div>

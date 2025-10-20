@@ -22,16 +22,16 @@ export default function StatsTray({ param }: { param: Param }) {
     return (
         <div className="stats-tray">
             {!isLoading && cityFullData ? <>
-                <StatsCard Icon={FaClock} title="Last Updated" unit={!!(Number(cityFullData.current.last_updated.split(" ")[1].split("").splice(0, 2).join("")) < 12) ? "AM" : "PM"} value={cityFullData.current.last_updated.split(" ")[1]} />
-                <StatsCard Icon={FaTemperatureHigh} title="Temperature" unit="°C" value={`${cityFullData.current.temp_c}`} />
-                <StatsCard Icon={FaWind} title="Wind Speed" unit="km/h" value={`${cityFullData.current.wind_kph}`} />
-                <StatsCard Icon={FaWind} title="Wind Degree" unit="deg" value={`${cityFullData.current.wind_degree}`} />
+                <StatsCard Icon={FaClock} iconClass="vibrate" title="Last Updated" unit={!!(Number(cityFullData.current.last_updated.split(" ")[1].split("").splice(0, 2).join("")) < 12) ? "AM" : "PM"} value={cityFullData.current.last_updated.split(" ")[1]} />
+                <StatsCard Icon={FaTemperatureHigh} iconClass="heartbeat" title="Temperature" unit="°C" value={`${cityFullData.current.temp_c}`} />
+                <StatsCard Icon={FaWind} iconClass="wobble" title="Wind Speed" unit="km/h" value={`${cityFullData.current.wind_kph}`} />
+                <StatsCard Icon={FaWind} iconClass="wobble" title="Wind Degree" unit="deg" value={`${cityFullData.current.wind_degree}`} />
                 <StatsCard Icon={FaCompass} title="Wind Direction" unit="" value={`${cityFullData.current.wind_dir}`} />
-                <StatsCard Icon={FaTemperatureEmpty} title="Pressure" unit="hPa" value={`${Number(cityFullData.current.pressure_mb).toLocaleString()}`} />
-                <StatsCard Icon={FaWater} title="Humidity" unit="%" value={`${cityFullData.current.humidity}`} />
-                <StatsCard Icon={FaTemperatureLow} title="Feels like" unit="°C" value={`${cityFullData.current.feelslike_c}`} />
-                <StatsCard Icon={FaCloud} title="Cloud Cover" unit="%" value={`${cityFullData.current.cloud}`} />
-                <StatsCard Icon={FaEye} title="Visibility" unit="km" value={`${cityFullData.current.vis_km}`} />
+                <StatsCard Icon={FaTemperatureEmpty} iconClass="heartbeat" title="Pressure" unit="hPa" value={`${Number(cityFullData.current.pressure_mb).toLocaleString()}`} />
+                <StatsCard Icon={FaWater} iconClass="vibrate" title="Humidity" unit="%" value={`${cityFullData.current.humidity}`} />
+                <StatsCard Icon={FaTemperatureLow} iconClass="heartbeat" title="Feels like" unit="°C" value={`${cityFullData.current.feelslike_c}`} />
+                <StatsCard Icon={FaCloud} iconClass="bounce" title="Cloud Cover" unit="%" value={`${cityFullData.current.cloud}`} />
+                <StatsCard Icon={FaEye} iconClass="vibrate" title="Visibility" unit="km" value={`${cityFullData.current.vis_km}`} />
             </>
                 :
                 isLoading ? (<>

@@ -4,7 +4,7 @@ import { useSearch } from "../../store/Search";
 import "../../styles/search-component.css";
 import { useAutocompleteHook } from "../../utilities/Hooks/useAutoComplete";
 import { useDebounce } from "../../utilities/Hooks/useDebounce";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { detectOS, getCountrySvg } from "../../utilities";
 import { useNavigate } from "react-router-dom";
 import { LocalStorageToolkit } from "../../utilities/localStorage";
@@ -40,10 +40,9 @@ export default function SearchComponent() {
         ]
     })
 
-
     return (
         <div ref={containerRef} className="search-wrapper no-blur">
-            <div className="filter flip-y"></div>
+            <div className="filter flip-y rounded"></div>
             <div className="search-component">
                 {/* Search Icon */}
                 <img
@@ -72,7 +71,7 @@ export default function SearchComponent() {
                 </kbd>}
 
                 {/* Search Suggestions */}
-                {autocomplete?.length > 0 && <SearchSuggestions autocomplete={autocomplete} clear={clear} />}
+                {!!(autocomplete.length > 0) && <SearchSuggestions autocomplete={autocomplete} clear={clear} />}
             </div>
         </div>
     )
@@ -85,6 +84,9 @@ const SearchSuggestions = ({
     autocomplete: string[];
     clear: () => void;
 }) => {
+    console.log({
+        autocomplete
+    })
     const { setSelectedCity, setSearchTerm } = useSearch();
     const navigate = useNavigate();
 
@@ -100,6 +102,7 @@ const SearchSuggestions = ({
         clear();
         navigate(`/details?query=${suggestion}&type=${cacheKeyExists ? 'known' : 'unknown'}`);
     }
+
     return (
         <div className="search-suggestions">
             {autocomplete.map((suggestion, index) => (

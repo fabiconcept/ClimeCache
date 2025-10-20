@@ -1,6 +1,6 @@
-export default function StatCard({ children }: { children: React.ReactNode }) {
+export default function StatCard({ children, title }: { children: React.ReactNode, title?: string }) {
     return (
-        <div className="stat-card">
+        <div title={title ?? ""} className="stat-card animate-wrapper">
             {children}
         </div>
     )

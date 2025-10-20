@@ -41,10 +41,6 @@ export class WeatherApi {
     }: RequestParams<unknown>): Promise<T> {
         const url = props.defaultUrl ?? `${this.BASE_URL}${props.endpoint}&key=${this.API_KEY}`;
 
-        console.log({
-            url
-        })
-
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
 

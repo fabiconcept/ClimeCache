@@ -9,13 +9,13 @@ export default function WindSpeed() {
     return (
         status === "success" ?
             !weatherData || !weatherData.current ? <>{"An error occurred while fetching weather data."}</> :
-                <StatCard>
+                <StatCard title={`Your area's Wind speed is ${weatherData.current.wind_kph}KM/H`}>
                     <p className="title">Wind speed</p>
                     <div className="row">
                         <div className="info">
-                            <div className="icon"><FaWind /></div>
+                            <div className="icon"><FaWind className="wobble" /></div>
                             <div className="stat">
-                                <span className="value">{weatherData.current.wind_kph}<span>km/h</span></span>
+                                <span className="value">{weatherData.current.wind_kph}<span>KM/H</span></span>
                             </div>
                         </div>
                     </div>

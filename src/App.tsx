@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import "./styles/animate.css";
 import Home from "./pages/Home";
 import { useEffect } from "react";
 import { getLocation } from "./utilities";

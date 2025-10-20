@@ -78,3 +78,8 @@ div:has(>.filter):not(.not-relative) {
 .flip-x {
   transform: scaleX(-1);
 }
+
+.filter.rounded {
+  border-radius: 5rem;
+  overflow: hidden;
+}

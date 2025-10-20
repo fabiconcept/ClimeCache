@@ -15,7 +15,7 @@ export default function City({ city, country, type = "world-city" }: { city: str
         <div className="city-wrapper">
             <div className="city" title={`${city}, ${country}`} onClick={() => navigate(`/details?query=${city}, ${country}&type=known`)}>
                 <div className="top">
-                    {cityData && <span>{cityData?.feelsLike}<sup>o</sup></span>}
+                    {cityData && <span>{cityData?.feelsLike}°</span>}
                     {!cityData && <span>{isLoading ? "..." : "No Data"}</span>}
                     <img
                         src={`/assets/svgs/weather/${cityData?.weather_descriptions.trim().toLowerCase().split(" ").join("-") ?? "not-available"}.svg`}

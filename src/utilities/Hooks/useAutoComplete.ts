@@ -17,6 +17,7 @@ export const useAutocompleteHook = ({ searchTerm }: { searchTerm: string }): [bo
             try {
                 clear();
                 setLoading(true);
+                if (searchTerm === "") return [];
                 const weatherAPI = new WeatherApi();
 
                 const response = await weatherAPI.getAutocomplete(searchTerm);

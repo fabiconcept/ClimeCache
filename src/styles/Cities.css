@@ -28,10 +28,42 @@
         }
     }
 
+    .city {
+        &::after {
+            content: "DELETE?";
+            position: absolute;
+            top: 50%;
+            transition: opacity 0.25s ease;
+            left: 50%;
+            color: rgba(var(--red-accent));
+            filter: drop-shadow(0, 3px, 5px, rgba(0, 0, 0, 1));
+            font-size: 2rem;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+    }
+
     &:has(.trash:hover) {
         .city {
             border: 1px solid rgb(var(--red-accent), 0.3);
             box-shadow: 0 0px 10px rgb(var(--red-accent), 0.1), inset 0 0px 5px rgb(var(--red-accent), 0.1), 0 0px 25px rgb(var(--red-accent), 0.05);
+            
+            * {
+                opacity: 50%;
+                filter: saturate(25%) blur(1px);
+            }
+
+            &::after{
+                opacity: 1;
+            }
+        }
+    }
+
+    &:has(.trash:active) {
+        .city{
+            &::after{
+                content: "DELETING";
+            }
         }
     }
 }

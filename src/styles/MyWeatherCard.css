@@ -5,6 +5,7 @@
     border: 1px solid rgb(var(--white), 0.1);
     border-radius: 1.5rem;
     align-items: center;
+    margin-top: 1rem;
     background-image: linear-gradient(to bottom, transparent, rgb(var(--blue-accent), 0.3));
 
     .error {

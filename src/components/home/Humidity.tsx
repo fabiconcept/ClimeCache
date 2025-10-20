@@ -9,11 +9,11 @@ export default function Humidity() {
     return (
         status === "success" ?
             !weatherData || !weatherData.current ? <>{"An error occurred while fetching weather data."}</> :
-                <StatCard>
+                <StatCard title={`Humidity ${weatherData.current.humidity}%`}>
                     <p className="title">Humidity</p>
                     <div className="row">
                         <div className="info">
-                            <div className="icon"><FaDroplet /></div>
+                            <div className="icon"><FaDroplet className="jello" /></div>
                             <div className="stat">
                                 <span className="value">{weatherData.current.humidity}<span>%</span></span>
                             </div>

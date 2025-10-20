@@ -2,7 +2,6 @@
     position: relative;
     z-index: 1000;
     border-radius: 5rem;
-    overflow: hidden;
     flex: 1;
 
 }
@@ -17,6 +16,10 @@
     display: flex;
     align-items: center;
     gap: 10px;
+
+    &:has(input:focus) {
+        backdrop-filter: grayscale(50%) brightness(75%);
+    }
     
 
     .shortcut-tip {

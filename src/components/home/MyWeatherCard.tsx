@@ -23,7 +23,7 @@ export default function MyWeatherCard() {
     }, [memoisedLocation, loadMyWeatherData]);
 
     return (
-        <div className="container">
+        <div className="container animate-wrapper">
             {hasPermissionLocation ?
                 <>
                     <div className='details'>
