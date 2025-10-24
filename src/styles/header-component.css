@@ -146,6 +146,7 @@
         .coming-soon {
             cursor: not-allowed;
             position: relative;
+            pointer-events: none;
 
             * {
                 opacity: 0.5;
@@ -153,7 +154,9 @@
 
             &::after {
                 content: "coming soon!";
+                position: absolute;
                 color: red;
+                pointer-events: none;
                 top: 50%;
                 right: 1rem;
                 transform: translateY(-50%);
