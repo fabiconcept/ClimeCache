@@ -159,6 +159,7 @@
                 pointer-events: none;
                 top: 50%;
                 right: 1rem;
+                font-size: 0.75rem;
                 transform: translateY(-50%);
             }
         }
