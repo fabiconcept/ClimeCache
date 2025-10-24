@@ -145,6 +145,18 @@
 
         &:has(.coming-soon) {
             cursor: not-allowed;
+
+            &:hover {
+                background-color: rgb(var(--black), 0.8);
+            }
+
+            &:active {
+                opacity: 1;
+
+                .title {
+                    transform: none;
+                }
+            }
         }
 
         .coming-soon {
@@ -167,7 +179,7 @@
             }
         }
 
-        &.disabled {
+        &.disabled, &:has(.coming-soon) {
             cursor: not-allowed;
             opacity: 0.5;
 
