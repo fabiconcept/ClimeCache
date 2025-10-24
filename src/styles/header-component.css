@@ -143,8 +143,11 @@
         border-bottom: 1px solid rgb(var(--white), 0.2);
         background-color: rgb(var(--black), 0.8);
 
-        .coming-soon {
+        &:has(.coming-soon) {
             cursor: not-allowed;
+        }
+
+        .coming-soon {
             position: relative;
             pointer-events: none;
 
