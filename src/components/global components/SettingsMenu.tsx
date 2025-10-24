@@ -9,7 +9,7 @@ import clsx from "clsx";
 export default function SettingsMenu({ closeMenu }: { closeMenu: () => void }) {
     const containerRef = useRef<HTMLDivElement>(null);
     useClickAway(containerRef, () => closeMenu());
-    const { reset } = useMyWorldCities();
+    const { reset,  } = useMyWorldCities();
     const { clearFavourites, myFavoriteCities } = useMyFavoriteCities();
 
     return (
@@ -37,7 +37,7 @@ export default function SettingsMenu({ closeMenu }: { closeMenu: () => void }) {
                 </div>
             </div>
             <div className="settings-menu-content">
-                <div className="row">
+                <div className="row coming-soon">
                     <div className="title">
                         <FaSun />
                         Switch to Dark Mode
